@@ -1,3 +1,4 @@
+//version 2
 package Testing1;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class Quiz1 {
 		password = input.next();
 		
 		
-		System.out.println("Hello "+ userName +", Welcome to CSC200 class! and Your password is "+ password);
+		System.out.println("Hello  "+ userName +", Welcome to CSC200 class! and Your password is "+ password);
 		input.close();
 	}
 
