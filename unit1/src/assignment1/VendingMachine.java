@@ -47,11 +47,11 @@
  end*/
 
 package assignment1;
-import java.util.Scanner;
+import java.util.Scanner;// scanner class
 
 public class VendingMachine {
 	public static void main(String[] args) {
-	
+	//initialize variables
 	double insertAmount = 0.0;
 	double foodPrice = 0.0;
 	double totalCharge = 0.0;
@@ -66,12 +66,15 @@ public class VendingMachine {
 	Scanner input = new Scanner(System.in);
 	
 		
-
+//output instructions 
 		System.out.println("The vending machine accepts amount in coins");
 		System.out.println("dime = 0.1, quarter = 0.25, penny = 0.01, nickel = 0.05, 1 dollar bill,and 5 dollars bill");
 		System.out.println("Please insert amounts and enter 0 to indicate you are done inserting");
 		
-		
+		//create a while loop that ends when user enter 0 which changes the variable not done to false
+		//user will enter amount individually 
+		//user will receive warn when the amount entered is not penny, dime, nickel, quarter, 1 dollar or 5 dollar
+		// try and catch is to avoid non-integer input like string
 		while (notdone){
 			System.out.println("Enter amount ");
 			
@@ -97,10 +100,11 @@ public class VendingMachine {
 			}
 						
 		}
-							
+		//output total inserted amount after the while loop is ended 					
 			System.out.println("You have inserted the dollar amount of $" + Math.round(insertAmount*100.0)/100.0);
 			
-		
+		//output user instructions  
+		//create a while loop that will end when user enter "0" 
 		int count = 1;	
 		System.out.println("This vending machine has five selections for you to choose from");
 		System.out
@@ -114,7 +118,7 @@ public class VendingMachine {
 			if(selection == 1 || selection == 2  || selection == 3 || selection == 4 ||
 					selection == 5 || selection == 0){
 				count++;
-							
+		//using switch statement to assignment food price based on the selection					
 			switch (selection){ 
 					case 1: 
 						foodPrice = 1.50;
@@ -145,7 +149,8 @@ public class VendingMachine {
 					
 				}
 			}
-			
+			//user if-else to output different outcomes ( insert amount > total charge or insert amount < total charge or selection = 0)
+			//if user input values other than 0, 1 - 5, the machine will display an error message and prompt user to re-enter again until the input is valid 
 			else{
 				System.out.println("Sorry, the item is unavalible, please re-enter selection for item # "+ count);
 				selection = input.nextInt();
@@ -191,7 +196,7 @@ public class VendingMachine {
 		}
 						
 	
-	
+	//display the total amount in two decimal point after the while loop is ended 
 	
 		System.out.println();
 		System.out.println("Thank you!");
@@ -207,10 +212,10 @@ public class VendingMachine {
 		
 		else if (totalCharge == 0){
 			totalChange = Math.round((insertAmount - totalCharge)*100.0)/100.0; 
+			
 			System.out.println("You did not select any item, your will receive a full amount of refund ");
 			System.out.print("The refund you will receive will be in ");
 				
-			
 		}	
 				
 				
@@ -235,7 +240,7 @@ public class VendingMachine {
 		pennies = (int)totalChange;
 		
 			
-		
+		// display the change in quarters, dimes, nickels, and pennies 
 		System.out.println(quarters+
 				" quarter(s), "+ dimes +" dime(s), "+nickels +
 				" nickel(s), "+pennies +" penny(ies)");
