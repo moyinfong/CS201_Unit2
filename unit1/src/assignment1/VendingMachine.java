@@ -202,14 +202,14 @@ public class VendingMachine {
 		System.out.println("Thank you!");
 		System.out.println("You have inserted the total amount of $ "+ Math.round(insertAmount*100.0)/100.0);
 		
-				
-		if(insertAmount > totalCharge){
+		//if the total charge is less than amount inserted and not equal to 0		
+		if(insertAmount > totalCharge && totalCharge!= 0){
 			totalChange = Math.round((insertAmount - totalCharge)*100.0)/100.0; 
 			System.out.println("The total amount of $" + Math.round(totalCharge*100.0)/100.0 + " will be charged");	
 			System.out.println("The total change in the amount of $"+ totalChange);
 			System.out.println("You will receive the amount of change in ");
 		}
-		
+		//if user did not select any item and enter 0 right away 
 		else if (totalCharge == 0){
 			totalChange = Math.round((insertAmount - totalCharge)*100.0)/100.0; 
 			
@@ -218,7 +218,8 @@ public class VendingMachine {
 				
 		}	
 				
-				
+		//if total price is more than amount inserted
+		//user will get full refund 
 		else{
 				totalCharge = 0;
 				totalChange = Math.round((insertAmount - totalCharge)*100.0)/100.0; 
@@ -229,7 +230,7 @@ public class VendingMachine {
 			
 			}
 			
-			
+		//calculate change in quarters, dimes, nickels, and pennies 	
 		totalChange = totalChange * 100;
 		quarters = (int)totalChange/ 25;
 		totalChange = totalChange % 25;
@@ -245,7 +246,7 @@ public class VendingMachine {
 				" quarter(s), "+ dimes +" dime(s), "+nickels +
 				" nickel(s), "+pennies +" penny(ies)");
 		System.out.println("See you next time!");
-		input.close();
+		input.close(); // close scanner 
 	
 		
 	}
