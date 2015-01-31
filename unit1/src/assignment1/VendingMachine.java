@@ -52,29 +52,45 @@ import java.util.Scanner;// scanner class
 public class VendingMachine {
 	public static void main(String[] args) {
 	//initialize variables
-	double insertAmount = 0.0;
-	double foodPrice = 0.0;
-	double totalCharge = 0.0;
-	double totalChange = 0.0;
-	int selection = 1;
-	int quarters;
-	int dimes;
-	int nickels;
-	int pennies; 
-	double amount = 1;
-	boolean notdone = true;
-	Scanner input = new Scanner(System.in);
 	
+		double insertAmount = 0.0;
+		double foodPrice = 0.0;
+		double totalCharge = 0.0;
+		double totalChange = 0.0;
+		int selection = 1;
+		int quarters;
+		int dimes;
+		int nickels;
+		int pennies; 
+		double amount = 1.0;
+		boolean notdone = true;
 		
-//output instructions 
+		
+		Scanner input = new Scanner(System.in);
+		
+//prompt user to input amounts
 		System.out.println("The vending machine accepts amount in coins");
 		System.out.println("dime = 0.1, quarter = 0.25, penny = 0.01, nickel = 0.05, 1 dollar bill,and 5 dollars bill");
 		System.out.println("Please insert amounts and enter 0 to indicate you are done inserting");
-		
+//loop that prompt user to purchase 3 times		
+	for(int i = 0; i< 3; i++){
+		//reset all the value to their initial values after each purchase is completed;
 		//create a while loop that ends when user enter 0 which changes the variable not done to false
 		//user will enter amount individually 
 		//user will receive warn when the amount entered is not penny, dime, nickel, quarter, 1 dollar or 5 dollar
 		// try and catch is to avoid non-integer input like string
+		notdone = true;
+		insertAmount = 0.0;
+		foodPrice = 0.0;
+		totalChange = 0.0;
+		totalCharge = 0.0;
+		selection = 1;
+		quarters= 0;
+		dimes = 0;
+		amount = 1.0; 
+		nickels = 0;
+		pennies = 0; 
+		
 		while (notdone){
 			System.out.println("Enter amount ");
 			
@@ -109,7 +125,8 @@ public class VendingMachine {
 		System.out.println("This vending machine has five selections for you to choose from");
 		System.out
 				.println("(1 for laychip $1.50 , 2 for Gummy Bear $2.81, 3 for Kitkat $0.89, 4 for Bubble Gum $1.72, "
-							+ "5 for Peanut butter cracker $3.5(You can exist the selection process anytime by entering 0");
+							+ "5 for Peanut butter cracker $3.5");
+		System.out.println("You can exist the selection process anytime by entering 0");
 		
 		
 		while(selection > 0){
@@ -246,15 +263,18 @@ public class VendingMachine {
 				" quarter(s), "+ dimes +" dime(s), "+nickels +
 				" nickel(s), "+pennies +" penny(ies)");
 		System.out.println("See you next time!");
-		input.close(); // close scanner 
-	
+		System.out.println();
 		
+		
+		}
+	input.close();
+	}	
 	}
 	
 	
 	
 			
-	}
+	
 
 						
 						
